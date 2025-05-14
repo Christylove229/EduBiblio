@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Mon Profil - EduBiblio</title>
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/profile.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&display=swap" rel="stylesheet">
+</head>
+<body>
+  <header id="site-header">
+    <div class="container">
+      <div class="logo">
+        <a href="index.html">EduBiblio</a>
+      </div>
+      <nav>
+        <ul class="nav-links">
+          <li><a href="index.html">Accueil</a></li>
+          <li><a href="library.html">Bibliothèque</a></li>
+          <li><a href="index.html#about">À propos</a></li>
+        </ul>
+        <div class="user-menu">
+          <div class="user-profile" id="user-profile">
+            <img src="https://ui-avatars.com/api/?background=1E40AF&color=fff" alt="Profil" id="user-avatar">
+            <span id="user-name">Utilisateur</span>
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg>
+          </div>
+          <div class="dropdown-menu" id="dropdown-menu">
+            <ul>
+              <li><a href="profile.html" class="active">Mon profil</a></li>
+              <li><a href="#" id="logout-button">Déconnexion</a></li>
+            </ul>
+          </div>
+        </div>
+        <div class="menu-toggle">
+          <span></span>
+          <span></span>
+          <span></span>
+        </div>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="profile-section">
+      <div class="container">
+        <h1>Mon Profil</h1>
+        
+        <div class="profile-container">
+          <div class="profile-sidebar">
+            <div class="profile-avatar">
+              <img src="https://ui-avatars.com/api/?background=1E40AF&color=fff&size=200" alt="Avatar" id="profile-avatar">
+              <button class="change-avatar-btn" title="Changer d'avatar">
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20h9"/><path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4L16.5 3.5z"/></svg>
+              </button>
+            </div>
+            <h2 id="profile-name">Utilisateur</h2>
+            <p id="profile-email">user@example.com</p>
+            <div class="profile-menu">
+              <ul>
+                <li><a href="#" class="active" data-tab="account-info">Informations du compte</a></li>
+                <li><a href="#" data-tab="security">Sécurité</a></li>
+                <li><a href="#" data-tab="recent-downloads">Téléchargements récents</a></li>
+              </ul>
+            </div>
+          </div>
+          
+          <div class="profile-content">
+            <div class="tab-content" id="account-info">
+              <h3>Informations du compte</h3>
+              
+              <div id="error-message" class="error-message"></div>
+              <div id="success-message" class="success-message"></div>
+              
+              <form id="profile-form">
+                <div class="form-group">
+                  <label for="display-name">Nom d'affichage</label>
+                  <input type="text" id="display-name" name="display-name" placeholder="Votre nom d'affichage">
+                </div>
+                <div class="form-group">
+                  <label for="profile-email-input">Email</label>
+                  <input type="email" id="profile-email-input" name="email" disabled>
+                  <small>L'email ne peut pas être modifié.</small>
+                </div>
+                <div class="form-group">
+                  <label for="joined-date">Membre depuis</label>
+                  <input type="text" id="joined-date" name="joined-date" disabled>
+                </div>
+                <button type="submit" class="btn btn-primary">Enregistrer les modifications</button>
+              </form>
+            </div>
+            
+            <div class="tab-content" id="security" style="display: none;">
+              <h3>Sécurité</h3>
+              
+              <div id="password-error-message" class="error-message"></div>
+              <div id="password-success-message" class="success-message"></div>
+              
+              <form id="password-form">
+                <div class="form-group">
+                  <label for="current-password">Mot de passe actuel</label>
+                  <input type="password" id="current-password" name="current-password" required>
+                </div>
+                <div class="form-group">
+                  <label for="new-password">Nouveau mot de passe</label>
+                  <input type="password" id="new-password" name="new-password" required>
+                  <div class="password-strength">
+                    <div class="strength-bar">
+                      <div class="strength-indicator" id="password-strength"></div>
+                    </div>
+                    <span id="strength-text">Force du mot de passe</span>
+                  </div>
+                </div>
+                <div class="form-group">
+                  <label for="confirm-new-password">Confirmer le nouveau mot de passe</label>
+                  <input type="password" id="confirm-new-password" name="confirm-new-password" required>
+                </div>
+                <button type="submit" class="btn btn-primary">Mettre à jour le mot de passe</button>
+              </form>
+              
+              <div class="danger-zone">
+                <h3>Zone de danger</h3>
+                <p>Les actions ci-dessous sont irréversibles. Soyez prudent.</p>
+                <button id="delete-account" class="btn btn-danger">Supprimer mon compte</button>
+              </div>
+            </div>
+            
+            <div class="tab-content" id="recent-downloads" style="display: none;">
+              <h3>Téléchargements récents</h3>
+              <div id="downloads-container" class="downloads-container">
+                <div class="loading-spinner" id="downloads-loading">
+                  <div class="spinner"></div>
+                  <p>Chargement de l'historique...</p>
+                </div>
+                <div id="no-downloads" style="display: none;">
+                  <p>Vous n'avez pas encore téléchargé de documents.</p>
+                  <a href="library.html" class="btn btn-primary">Explorer la bibliothèque</a>
+                </div>
+                <ul id="downloads-list" class="downloads-list">
+                  <!-- Downloads will be loaded here -->
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container">
+      <div class="footer-content">
+        <div class="footer-logo">
+          <h3>EduBiblio</h3>
+          <p>Votre bibliothèque d'épreuves PDF en ligne</p>
+        </div>
+        <div class="footer-links">
+          <h4>Liens rapides</h4>
+          <ul>
+            <li><a href="index.html">Accueil</a></li>
+            <li><a href="library.html">Bibliothèque</a></li>
+            <li><a href="profile.html">Mon profil</a></li>
+            <li><a href="index.html#about">À propos</a></li>
+          </ul>
+        </div>
+        <div class="footer-contact">
+          <h4>Contact</h4>
+          <p>Email: contact@edubiblio.fr</p>
+          <p>Téléphone: +33 1 23 45 67 89</p>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>&copy; 2025 EduBiblio. Tous droits réservés.</p>
+      </div>
+    </div>
+  </footer>
+
+  <div id="delete-modal" class="modal">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h2>Supprimer le compte</h2>
+        <button class="close-modal">&times;</button>
+      </div>
+      <div class="modal-body">
+        <p>Êtes-vous sûr de vouloir supprimer votre compte? Cette action est irréversible et toutes vos données seront définitivement supprimées.</p>
+        <form id="delete-account-form">
+          <div class="form-group">
+            <label for="delete-confirm">Pour confirmer, tapez "SUPPRIMER" ci-dessous</label>
+            <input type="text" id="delete-confirm" name="delete-confirm" required>
+          </div>
+        </form>
+      </div>
+      <div class="modal-footer">
+        <button class="btn btn-outline" id="cancel-delete">Annuler</button>
+        <button class="btn btn-danger" id="confirm-delete" disabled>Supprimer définitivement</button>
+      </div>
+    </div>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+  <script src="js/main.js"></script>
+  <script type="module" src="js/auth.js"></script>
+  <script src="js/profile.js"></script>
+</body>
+</html>

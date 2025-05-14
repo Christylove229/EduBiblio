@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Bibliothèque - EduBiblio</title>
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/library.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&display=swap" rel="stylesheet">
+</head>
+<body>
+  <header id="site-header">
+    <div class="container">
+      <div class="logo">
+        <a href="index.html">EduBiblio</a>
+      </div>
+      <nav>
+        <ul class="nav-links">
+          <li><a href="index.html">Accueil</a></li>
+          <li><a href="library.html" class="active">Bibliothèque</a></li>
+          <li><a href="index.html#about">À propos</a></li>
+        </ul>
+        <div class="user-menu">
+          <div class="user-profile" id="user-profile">
+            <img src="https://ui-avatars.com/api/?background=1E40AF&color=fff" alt="Profil" id="user-avatar">
+            <span id="user-name">Utilisateur</span>
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg>
+          </div>
+          <div class="dropdown-menu" id="dropdown-menu">
+            <ul>
+              <li><a href="profile.html">Mon profil</a></li>
+              <li><a href="#" id="logout-button">Déconnexion</a></li>
+            </ul>
+          </div>
+        </div>
+        <div class="menu-toggle">
+          <span></span>
+          <span></span>
+          <span></span>
+        </div>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="library-hero">
+      <div class="container">
+        <h1>Bibliothèque d'épreuves</h1>
+        <p>Explorez notre collection complète d'épreuves et de ressources pédagogiques.</p>
+      </div>
+    </section>
+
+    <section class="library-content">
+      <div class="container">
+        <div class="filters-section">
+          <div class="search-bar">
+            <input type="text" id="search-input" placeholder="Rechercher une épreuve...">
+            <button class="search-button">
+              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></svg>
+            </button>
+          </div>
+          
+          <div class="filter-container">
+            <div class="filter-group">
+              <label for="matiere-filter">Matière</label>
+              <select id="matiere-filter">
+                <option value="">Toutes les matières</option>
+                <option value="mathematiques">Mathématiques</option>
+                <option value="physique">Physique</option>
+                <option value="chimie">Chimie</option>
+                <option value="svt">SVT</option>
+                <option value="francais">Français</option>
+                <option value="histoire">Histoire</option>
+                <option value="geographie">Géographie</option>
+                <option value="philosophie">Philosophie</option>
+                <option value="anglais">Anglais</option>
+              </select>
+            </div>
+            
+            <div class="filter-group">
+              <label for="niveau-filter">Niveau</label>
+              <select id="niveau-filter">
+                <option value="">Tous les niveaux</option>
+                <option value="college">Collège</option>
+                <option value="lycee">Lycée</option>
+                <option value="terminale">Terminale</option>
+                <option value="superieur">Enseignement supérieur</option>
+              </select>
+            </div>
+            
+            <button id="reset-filters" class="btn btn-outline btn-small">Réinitialiser</button>
+          </div>
+        </div>
+        
+        <div class="documents-container">
+          <div class="documents-count">
+            <p><span id="docs-count">0</span> documents trouvés</p>
+          </div>
+          
+          <div class="documents-grid" id="documents-grid">
+            <!-- Documents will be loaded dynamically here -->
+            <div class="loading-spinner" id="loading-spinner">
+              <div class="spinner"></div>
+              <p>Chargement des ressources...</p>
+            </div>
+          </div>
+          
+          <div class="no-results" id="no-results" style="display: none;">
+            <svg xmlns="http://www.w3.org/2000/svg" width="64" height="64" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="18" height="18" x="3" y="3" rx="2" ry="2"></rect><line x1="9" x2="15" y1="15" y2="15"></line><line x1="9" x2="15" y1="9" y2="9"></line></svg>
+            <p>Aucun document ne correspond à votre recherche.</p>
+            <button id="clear-search" class="btn btn-primary">Effacer la recherche</button>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container">
+      <div class="footer-content">
+        <div class="footer-logo">
+          <h3>EduBiblio</h3>
+          <p>Votre bibliothèque d'épreuves PDF en ligne</p>
+        </div>
+        <div class="footer-links">
+          <h4>Liens rapides</h4>
+          <ul>
+            <li><a href="index.html">Accueil</a></li>
+            <li><a href="library.html">Bibliothèque</a></li>
+            <li><a href="profile.html">Mon profil</a></li>
+            <li><a href="index.html#about">À propos</a></li>
+          </ul>
+        </div>
+        <div class="footer-contact">
+          <h4>Contact</h4>
+          <p>Email: contact@edubiblio.fr</p>
+          <p>Téléphone: +33 1 23 45 67 89</p>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>&copy; 2025 EduBiblio. Tous droits réservés.</p>
+      </div>
+    </div>
+  </footer>
+
+  <div id="doc-preview-modal" class="modal">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h2 id="modal-title">Titre du document</h2>
+        <button class="close-modal">&times;</button>
+      </div>
+      <div class="modal-body">
+        <div class="document-details">
+          <div class="detail-group">
+            <label>Matière:</label>
+            <span id="modal-matiere">Mathématiques</span>
+          </div>
+          <div class="detail-group">
+            <label>Niveau:</label>
+            <span id="modal-niveau">Terminale</span>
+          </div>
+          <div class="detail-group">
+            <label>Pages:</label>
+            <span id="modal-pages">4</span>
+          </div>
+        </div>
+        <div class="document-preview">
+          <img id="modal-preview" src="https://images.pexels.com/photos/6177657/pexels-photo-6177657.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" alt="Aperçu du document">
+        </div>
+        <div class="document-description">
+          <h3>Description</h3>
+          <p id="modal-description">Description détaillée du document...</p>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <a href="#" id="download-btn" class="btn btn-primary" download>Télécharger</a>
+      </div>
+    </div>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+  <script src="js/main.js"></script>
+  <script type="module" src="js/auth.js"></script>
+  <script src="js/library.js"></script>
+</body>
+</html>

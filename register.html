@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Inscription - EduBiblio</title>
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/auth.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&display=swap" rel="stylesheet">
+</head>
+<body>
+  <header id="site-header">
+    <div class="container">
+      <div class="logo">
+        <a href="index.html">EduBiblio</a>
+      </div>
+      <nav>
+        <ul class="nav-links">
+          <li><a href="index.html">Accueil</a></li>
+          <li><a href="index.html#features">Fonctionnalités</a></li>
+          <li><a href="index.html#about">À propos</a></li>
+        </ul>
+        <div class="auth-buttons">
+          <a href="login.html" class="btn btn-outline">Connexion</a>
+          <a href="register.html" class="btn btn-primary active">Inscription</a>
+        </div>
+        <div class="menu-toggle">
+          <span></span>
+          <span></span>
+          <span></span>
+        </div>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="auth-section">
+      <div class="container">
+        <div class="auth-container register-container">
+          <div class="auth-image">
+            <img src="https://images.pexels.com/photos/4143800/pexels-photo-4143800.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" alt="Inscription">
+          </div>
+          <div class="auth-form-container">
+            <h1>Créer un compte</h1>
+            <p class="auth-description">Rejoignez EduBiblio pour accéder à notre bibliothèque complète d'épreuves PDF.</p>
+            
+            <div id="error-message" class="error-message"></div>
+            <div id="success-message" class="success-message"></div>
+            
+            <form id="register-form" class="auth-form">
+              <div class="form-group">
+                <label for="email">Email</label>
+                <input type="email" id="email" name="email" required placeholder="votre@email.com">
+              </div>
+              <div class="form-group">
+                <label for="password">Mot de passe</label>
+                <input type="password" id="password" name="password" required placeholder="Minimum 6 caractères">
+                <div class="password-strength">
+                  <div class="strength-bar">
+                    <div class="strength-indicator" id="password-strength"></div>
+                  </div>
+                  <span id="strength-text">Force du mot de passe</span>
+                </div>
+              </div>
+              <div class="form-group">
+                <label for="confirm-password">Confirmer le mot de passe</label>
+                <input type="password" id="confirm-password" name="confirm-password" required placeholder="Retapez votre mot de passe">
+              </div>
+              <div class="form-group terms">
+                <input type="checkbox" id="terms" name="terms" required>
+                <label for="terms">J'accepte les <a href="#">conditions d'utilisation</a> et la <a href="#">politique de confidentialité</a></label>
+              </div>
+              <button type="submit" class="btn btn-primary btn-block" id="register-button">
+                <span class="btn-text">S'inscrire</span>
+                <span class="btn-loader"></span>
+              </button>
+            </form>
+            
+            <div class="auth-links">
+              <p>Vous avez déjà un compte? <a href="login.html">Se connecter</a></p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container">
+      <div class="footer-content">
+        <div class="footer-logo">
+          <h3>EduBiblio</h3>
+          <p>Votre bibliothèque d'épreuves PDF en ligne</p>
+        </div>
+        <div class="footer-links">
+          <h4>Liens rapides</h4>
+          <ul>
+            <li><a href="index.html">Accueil</a></li>
+            <li><a href="login.html">Connexion</a></li>
+            <li><a href="register.html">Inscription</a></li>
+            <li><a href="index.html#features">Fonctionnalités</a></li>
+          </ul>
+        </div>
+        <div class="footer-contact">
+          <h4>Contact</h4>
+          <p>Email: contact@edubiblio.fr</p>
+          <p>Téléphone: +33 1 23 45 67 89</p>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>&copy; 2025 EduBiblio. Tous droits réservés.</p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+  <script src="js/main.js"></script>
+  <script type="module" src="js/auth.js"></script>
+  <script type="module" src="js/register.js"></script>
+</body>
+</html>
