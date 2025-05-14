@@ -1,0 +1,231 @@
+/* Profile page styles */
+.profile-section {
+  padding: var(--space-12) 0;
+}
+
+.profile-container {
+  display: flex;
+  gap: var(--space-8);
+  margin-top: var(--space-6);
+}
+
+/* Sidebar */
+.profile-sidebar {
+  width: 280px;
+  flex-shrink: 0;
+  background-color: white;
+  border-radius: var(--radius-lg);
+  padding: var(--space-6);
+  box-shadow: var(--shadow-md);
+  text-align: center;
+}
+
+.profile-avatar {
+  position: relative;
+  width: 120px;
+  height: 120px;
+  margin: 0 auto var(--space-4);
+}
+
+.profile-avatar img {
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 4px solid var(--primary-50);
+}
+
+.change-avatar-btn {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  width: 36px;
+  height: 36px;
+  background-color: var(--primary-600);
+  border: none;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  cursor: pointer;
+  box-shadow: var(--shadow-md);
+  transition: background-color var(--transition-fast);
+}
+
+.change-avatar-btn:hover {
+  background-color: var(--primary-700);
+}
+
+.profile-sidebar h2 {
+  margin-bottom: var(--space-1);
+}
+
+.profile-sidebar p {
+  color: var(--gray-500);
+  margin-bottom: var(--space-6);
+}
+
+.profile-menu {
+  margin-top: var(--space-4);
+}
+
+.profile-menu ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  text-align: left;
+}
+
+.profile-menu li {
+  margin-bottom: var(--space-1);
+}
+
+.profile-menu a {
+  display: block;
+  padding: var(--space-3) var(--space-4);
+  border-radius: var(--radius-md);
+  color: var(--gray-700);
+  transition: all var(--transition-fast);
+}
+
+.profile-menu a:hover {
+  background-color: var(--gray-100);
+  color: var(--primary-700);
+}
+
+.profile-menu a.active {
+  background-color: var(--primary-50);
+  color: var(--primary-700);
+  font-weight: 500;
+}
+
+/* Main content */
+.profile-content {
+  flex: 1;
+  background-color: white;
+  border-radius: var(--radius-lg);
+  padding: var(--space-6);
+  box-shadow: var(--shadow-md);
+}
+
+.tab-content h3 {
+  margin-bottom: var(--space-6);
+  padding-bottom: var(--space-3);
+  border-bottom: 1px solid var(--gray-200);
+}
+
+/* Danger zone */
+.danger-zone {
+  margin-top: var(--space-12);
+  padding-top: var(--space-6);
+  border-top: 1px solid var(--gray-200);
+}
+
+.danger-zone h3 {
+  color: var(--error-600);
+}
+
+.danger-zone p {
+  margin-bottom: var(--space-4);
+  color: var(--gray-600);
+}
+
+/* Recent downloads */
+.downloads-list {
+  list-style: none;
+  padding: 0;
+}
+
+.download-item {
+  display: flex;
+  align-items: center;
+  padding: var(--space-3) 0;
+  border-bottom: 1px solid var(--gray-200);
+}
+
+.download-item:last-child {
+  border-bottom: none;
+}
+
+.download-icon {
+  flex-shrink: 0;
+  width: 40px;
+  height: 40px;
+  border-radius: var(--radius-md);
+  background-color: var(--primary-50);
+  color: var(--primary-700);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-right: var(--space-3);
+}
+
+.download-details {
+  flex: 1;
+}
+
+.download-title {
+  font-weight: 500;
+  margin-bottom: var(--space-1);
+}
+
+.download-meta {
+  display: flex;
+  justify-content: space-between;
+  font-size: var(--font-sm);
+  color: var(--gray-500);
+}
+
+.download-actions {
+  margin-left: var(--space-3);
+}
+
+.download-actions a {
+  color: var(--gray-500);
+  transition: color var(--transition-fast);
+}
+
+.download-actions a:hover {
+  color: var(--primary-600);
+}
+
+/* Responsive design for profile page */
+@media (max-width: 1024px) {
+  .profile-container {
+    flex-direction: column;
+  }
+  
+  .profile-sidebar {
+    width: 100%;
+    margin-bottom: var(--space-6);
+  }
+  
+  .profile-menu ul {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--space-2);
+  }
+  
+  .profile-menu li {
+    margin-bottom: 0;
+  }
+}
+
+@media (max-width: 480px) {
+  .profile-section {
+    padding: var(--space-6) 0;
+  }
+  
+  .profile-content {
+    padding: var(--space-4);
+  }
+  
+  .profile-menu ul {
+    flex-direction: column;
+  }
+  
+  .download-meta {
+    flex-direction: column;
+  }
+}
